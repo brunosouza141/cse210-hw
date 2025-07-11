@@ -32,13 +32,17 @@ public class Journal
 
     public void LoadFromFile(string file)
     {
-        Console.WriteLine("What is the filename?");
-        string filename = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        _entries = new List<Entry>();
+        string[] lines = System.IO.File.ReadAllLines(file);
 
-        foreach (string line in lines)
+        foreach (string line in lines.Skip(1))
         {
-            
+            Entry entry = new Entry();
+            string[] splitedLine = line.Split(",");
+            entry._date = splitedLine[0];
+            entry._promptText = splitedLine[1];
+            entry._entryText = splitedLine[2];
+            _entries.Add(entry);
         }
     }
 }

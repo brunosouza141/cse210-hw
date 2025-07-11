@@ -46,20 +46,25 @@ class Program
 
                 case 2:
                     journal.DisplayAll();
-
                     break;
 
                 case 3:
+                    Console.WriteLine("What is the filename? ");
+                    string loadFilename = Console.ReadLine();
+                    journal.LoadFromFile(loadFilename);
                     break;
 
                 case 4:
                     Console.WriteLine("What is the filename? ");
-                    string filename = Console.ReadLine();
-                    journal.SaveToFile(filename);
-                break;
-
+                    string saveFilename = Console.ReadLine();
+                    journal.SaveToFile(saveFilename);
+                    break;
                 case 5:
                     break;
+                default:
+                    Console.WriteLine("-----\nInvalid option. Please pick a number between 1 to 5.\n-----");
+                    break;
+
             }
         } while (userChoice != 5);
 
