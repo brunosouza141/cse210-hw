@@ -1,0 +1,36 @@
+What does the program do?
+It prompt the user for an entry and save that entry into a file with the current date.
+
+What user inputs does it have?
+1- The response to our prompt.
+
+2- A file name to save the stored prompts.
+
+3- A file name to load the data from.
+
+What output does it produce?
+1- Provide the menu with options.
+
+2- Display a prompt.
+
+3- Display Journal entries.
+
+4- What is the file name (For load and save options).
+
+How does the program end?
+
+The user will choose the option to Exit from the menu.
+
+-----------------------------------------------------------------
+What are good candidates for classes in this program?
+1- Program:
+    - Create an instance for each class and doing the logic of the program.
+
+2- fileFuctions:
+    - Save and load functions. To handle the reading and writing files requests from the user.
+
+3- userInteractions:
+    - Display prompts and read inputs from the user.
+
+What are the primary responsibilities of each class? (See previous question.)
+
