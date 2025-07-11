@@ -9,15 +9,14 @@ class Program
         int userChoice = 0;
 
         //Instanciate the classes
-        Entry entry = new Entry();
         Journal journal = new Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
-
         //First interaction with the user
         Console.WriteLine("Welcome to the Journal program");
         //Do while the user choose the option 5 (Quit)
         do
         {
+            Entry entry = new Entry();
             Console.WriteLine("Please select one of the following choices.");
             Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
             Console.Write("What would you like to do: ");
@@ -35,6 +34,7 @@ class Program
                     Console.WriteLine(randomPrompt);
 
                     // Add entry details to the Entry instance.
+                    Console.Write("> ");
                     entry._entryText = Console.ReadLine();
                     entry._promptText = randomPrompt;
                     entry._date = dateText;
@@ -45,7 +45,7 @@ class Program
                     break;
 
                 case 2:
-
+                    journal.DisplayAll();
 
                     break;
 
@@ -53,7 +53,10 @@ class Program
                     break;
 
                 case 4:
-                    break;
+                    Console.WriteLine("What is the filename? ");
+                    string filename = Console.ReadLine();
+                    journal.SaveToFile(filename);
+                break;
 
                 case 5:
                     break;
