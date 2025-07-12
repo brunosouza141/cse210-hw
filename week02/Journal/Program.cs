@@ -28,6 +28,7 @@ class Program
                     // Get date as string
                     DateTime theCurrentTime = DateTime.Now;
                     string dateText = theCurrentTime.ToShortDateString();
+                    string timeText = theCurrentTime.ToShortTimeString();
 
                     // Get random prompt and show the user
                     string randomPrompt = promptGenerator.GetRandomPrompt();
@@ -38,6 +39,7 @@ class Program
                     entry._entryText = Console.ReadLine();
                     entry._promptText = randomPrompt;
                     entry._date = dateText;
+                    entry._time = timeText;
 
                     journal.AddEntry(entry);
 

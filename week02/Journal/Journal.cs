@@ -13,7 +13,7 @@ public class Journal
     {
         foreach (Entry entry in _entries)
         {
-            Console.WriteLine($"Date: {entry._date} - Prompt: {entry._promptText}\n {entry._entryText}\n");
+            Console.WriteLine($"Date: {entry._date} - Time: {entry._time} - Prompt: {entry._promptText}\n {entry._entryText}\n");
         };
     }
 
@@ -22,10 +22,10 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(file))
         {
-            outputFile.WriteLine($"Date,Prompt,Entry");
+            outputFile.WriteLine($"Date,Time,Prompt,Entry");
             foreach (Entry entry in _entries)
             {
-                outputFile.WriteLine($"{entry._date},{entry._promptText},{entry._entryText}");
+                outputFile.WriteLine($"{entry._date},{entry._time},{entry._promptText},{entry._entryText}");
             }
         }
     }
@@ -40,8 +40,9 @@ public class Journal
             Entry entry = new Entry();
             string[] splitedLine = line.Split(",");
             entry._date = splitedLine[0];
-            entry._promptText = splitedLine[1];
-            entry._entryText = splitedLine[2];
+            entry._time = splitedLine[1];
+            entry._promptText = splitedLine[2];
+            entry._entryText = splitedLine[3];
             _entries.Add(entry);
         }
     }
