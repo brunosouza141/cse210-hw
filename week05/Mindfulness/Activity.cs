@@ -2,6 +2,8 @@ using System;
 
 public class Activity
 {
+    private List<string> _runs = new List<string>();
+
     protected string _name;
     protected string _description;
     protected int _duration;
@@ -12,6 +14,7 @@ public class Activity
         _name = "Reflecting";
         _description = "This activity will help you to reflext on times ...";
         _duration = 50;
+
     }
 
     public void SetDuration()
@@ -37,20 +40,46 @@ public class Activity
     }
     public void ShowSpinner(int seconds)
     {
-        Thread.Sleep(seconds * 1000);
-        Console.WriteLine(); 
+        List<string> animationStrings = new List<string>();
+        animationStrings.Add("|");
+        animationStrings.Add("/");
+        animationStrings.Add("-");
+        animationStrings.Add("\\");
+        animationStrings.Add("|");
+        animationStrings.Add("/");
+        animationStrings.Add("-");
+        animationStrings.Add("\\");
+
+        int i = 0;
+        DateTime endtime = DateTime.Now.AddSeconds(seconds);
+        while (DateTime.Now < endtime)
+        {
+            string animations = animationStrings[i];
+            Console.Write(animations);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+
+            i++;
+
+            if (i >= animationStrings.Count())
+            {
+                i = 0;
+            }
+        }
+        Console.WriteLine();
     }
     public void ShowCountDown(int seconds)
     {
         for (int i = seconds; i >= 1; i--)
         {
-            Console.Write(i);          
-            Thread.Sleep(1000);        
+            Console.Write(i);
+            Thread.Sleep(1000);
 
-            
+
             Console.Write("\b \b");
         }
 
-        Console.WriteLine("\n"); 
+        Console.WriteLine("\n");
     }
+        
 }

@@ -2,7 +2,6 @@ using System;
 
 public class ReflectingActivity : Activity
 {
-    
     private List<string> _prompts;
     private List<string> _questions;
     private Random _random = new Random();
@@ -39,6 +38,7 @@ public class ReflectingActivity : Activity
         {
             DisplayQuestions();
             ShowSpinner(5);
+            Console.WriteLine();
         } while (DateTime.Now < _endTime);
     }
     public string GetRandomPrompt()
