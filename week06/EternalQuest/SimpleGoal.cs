@@ -12,6 +12,11 @@ class SimpleGoal : Goal
         }
     }
 
+    public string test(Goal test)
+    {
+        return "";
+    }
+
     public override void RecordEvent()
     {
         _isComplete = true;
